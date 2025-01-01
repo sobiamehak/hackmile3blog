@@ -18,7 +18,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
-
+import Link from "next/link";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await sanityFetch({
     query: settingsQuery,
@@ -89,15 +89,15 @@ export default async function RootLayout({
 <div className='flex justify-center items-center text-4xl gap-8 pb-15'>
  
 
- <a href="https://www.linkedin.com/in/sobia-mehak-a277362ba/" target="_blank" rel="noopener noreferrer">
+ <Link href="https://www.linkedin.com/in/sobia-mehak-a277362ba/" target="_blank" rel="noopener noreferrer">
    <FaLinkedin className='text-blue-900 transition duration-300 ease-in-out transform hover:scale-105' />
- </a>
- <a href="https://github.com/sobiamehak" target="_blank" rel="noopener noreferrer">
+ </Link>
+ <Link href="https://github.com/sobiamehak" target="_blank" rel="noopener noreferrer">
    <FaGithub className=' transition duration-300 ease-in-out transform hover:scale-105 text-white' />
- </a>
- <a href="https://www.facebook.com/lal.pari.712714?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+ </Link>
+ <Link href="https://www.facebook.com/lal.pari.712714?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
    <FaFacebook className='text-blue-700 transition duration-300 ease-in-out transform hover:scale-105' />
- </a>
+ </Link>
 </div>
                   </div>
                 </div>
