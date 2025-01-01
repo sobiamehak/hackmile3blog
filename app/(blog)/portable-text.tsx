@@ -7,7 +7,7 @@
  * https://portabletext.org/
  *
  */
-
+import Link from "next/link";
 import {
   PortableText,
   type PortableTextComponents,
@@ -33,9 +33,9 @@ export default function CustomPortableText({
     marks: {
       link: ({ children, value }) => {
         return (
-          <a href={value?.href} rel="noreferrer noopener">
+          <Link href={value?.href} rel="noreferrer noopener">
             {children}
-          </a>
+          </Link>
         );
       },
     },
