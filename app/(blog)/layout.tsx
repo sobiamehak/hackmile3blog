@@ -1,4 +1,5 @@
 import "../globals.css";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
@@ -10,7 +11,7 @@ import {
 import { Inter } from "next/font/google";
 import { draftMode } from "next/headers";
 
-import AlertBanner from "./alert-banner";
+import Header from "./alert-banner";
 import PortableText from "./portable-text";
 
 import * as demo from "@/sanity/lib/demo";
@@ -68,9 +69,9 @@ export default async function RootLayout({
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
         <section className="min-h-screen">
-          {isDraftMode && <AlertBanner />}
+          {isDraftMode && <Header />}
           <main>{children}</main>
-          <footer className="bg-accent-1 border-accent-2 border-t">
+          <footer className="bg-accent-1 border-accent-2 border-t bg-black">
             <div className="container mx-auto px-5">
               {footer.length > 0 ? (
                 <PortableText
@@ -78,23 +79,26 @@ export default async function RootLayout({
                   value={footer as PortableTextBlock[]}
                 />
               ) : (
-                <div className="flex flex-col items-center py-28 lg:flex-row">
-                  <h3 className="mb-10 text-center text-4xl font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left lg:text-5xl">
-                    Built with Next.js.
-                  </h3>
+                <div className="flex flex-col items-center py-8 lg:flex-row">
+                  <p className=" text-white mb-10 text-center  font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left lg:text-xl">
+                 &copy; 2024 My Blog. All Rights Reserved.
+                  </p>
                   <div className="flex flex-col items-center justify-center lg:w-1/2 lg:flex-row lg:pl-4">
-                    <a
-                      href="https://nextjs.org/docs"
-                      className="mx-3 mb-6 border border-black bg-black py-3 px-12 font-bold text-white transition-colors duration-200 hover:bg-white hover:text-black lg:mb-0 lg:px-8"
-                    >
-                      Read Documentation
-                    </a>
-                    <a
-                      href="https://github.com/vercel/next.js/tree/canary/examples/cms-sanity"
-                      className="mx-3 font-bold hover:underline"
-                    >
-                      View on GitHub
-                    </a>
+                   
+                   
+<div className='flex justify-center items-center text-4xl gap-8 pb-15'>
+ 
+
+ <a href="https://www.linkedin.com/in/sobia-mehak-a277362ba/" target="_blank" rel="noopener noreferrer">
+   <FaLinkedin className='text-blue-900 transition duration-300 ease-in-out transform hover:scale-105' />
+ </a>
+ <a href="https://github.com/sobiamehak" target="_blank" rel="noopener noreferrer">
+   <FaGithub className=' transition duration-300 ease-in-out transform hover:scale-105 text-white' />
+ </a>
+ <a href="https://www.facebook.com/lal.pari.712714?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
+   <FaFacebook className='text-blue-700 transition duration-300 ease-in-out transform hover:scale-105' />
+ </a>
+</div>
                   </div>
                 </div>
               )}

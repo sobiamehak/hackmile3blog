@@ -66,7 +66,7 @@ export default defineType({
           name: "alt",
           type: "string",
           title: "Alternative text",
-          description: "Important for SEO and accessiblity.",
+          description: "Important for SEO and accessibility.",
           validation: (rule) => {
             return rule.custom((alt, context) => {
               if ((context.document?.coverImage as any)?.asset?._ref && !alt) {
@@ -90,6 +90,38 @@ export default defineType({
       title: "Author",
       type: "reference",
       to: [{ type: authorType.name }],
+    }),
+    defineField({
+      name: "comments",
+      title: "Comments",
+      type: "array",
+      of: [
+        defineField({
+          name: "comment",
+          title: "Comment",
+          type: "object",
+          fields: [
+            defineField({
+              name: "name",
+              title: "Name",
+              type: "string",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "text",
+              title: "Comment Text",
+              type: "text",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "timestamp",
+              title: "Timestamp",
+              type: "datetime",
+              initialValue: () => new Date().toISOString(),
+            }),
+          ],
+        }),
+      ],
     }),
   ],
   preview: {

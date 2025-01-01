@@ -13,11 +13,12 @@ export { metadata, viewport } from "next-sanity/studio";
 export default function RootLayout({
   children,
 }: {
+ 
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen">{children}</body>
+    <html lang="en" >
+      <body >{children}</body>
     </html>
   );
 }

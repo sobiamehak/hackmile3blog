@@ -15,20 +15,22 @@ export default async function MoreStories(params: {
 
   return (
     <>
-      <div className="mb-32 grid grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16 md:gap-y-32 lg:gap-x-32">
+      <div className="mb-32 grid grid-cols-1 gap-y-20 md:grid-cols-2 md:gap-x-16
+       md:gap-y-32 lg:gap-x-32 ">
         {data?.map((post) => {
           const { _id, title, slug, coverImage, excerpt, author } = post;
           return (
             <article key={_id}>
-              <Link href={`/posts/${slug}`} className="group mb-5 block">
+              <Link href={`/posts/${slug}`} className="group mb-5 block ">
                 <CoverImage image={coverImage} priority={false} />
               </Link>
+             
               <h3 className="text-balance mb-3 text-3xl leading-snug">
-                <Link href={`/posts/${slug}`} className="hover:underline">
+                <Link href={`/posts/${slug}`} className="hover:underline ">
                   {title}
                 </Link>
               </h3>
-              <div className="mb-4 text-lg">
+              <div className="mb-4 text-lg bg-gray-100">
                 <DateComponent dateString={post.date} />
               </div>
               {excerpt && (
@@ -38,9 +40,12 @@ export default async function MoreStories(params: {
               )}
               {author && <Avatar name={author.name} picture={author.picture} />}
             </article>
+           
           );
+
         })}
       </div>
+      
     </>
   );
 }
