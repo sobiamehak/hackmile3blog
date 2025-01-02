@@ -65,6 +65,8 @@ export default async function PostPage({ params }: Props) {
   }
 
   return (
+    <div>
+      
     <div className="container mx-auto px-5">
       <h2 className="mb-16 mt-10 text-xl font-bold leading-tight tracking-tight md:text-2xl md:tracking-tighter">
         <Link href="/" className="hover:underline">
@@ -120,6 +122,7 @@ export default async function PostPage({ params }: Props) {
           <MoreStories skip={post._id} limit={2} />
         </Suspense>
       </aside>
+    </div>
     </div>
   );
 }
