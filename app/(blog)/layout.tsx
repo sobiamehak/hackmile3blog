@@ -19,6 +19,8 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import { settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
 import Link from "next/link";
+import CommentSec from "./comments/page";
+import { Comment, comment } from "postcss";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await sanityFetch({
     query: settingsQuery,
@@ -65,7 +67,8 @@ export default async function RootLayout({
   const footer = data?.footer || [];
   const { isEnabled: isDraftMode } = await draftMode();
 
-  return (
+  return ( 
+   
     <html lang="en" className={`${inter.variable} bg-white text-black`}>
       <body>
         <section className="min-h-screen">
@@ -77,12 +80,24 @@ export default async function RootLayout({
                 <PortableText
                   className="prose-sm text-pretty bottom-0 w-full max-w-none bg-white py-12 text-center md:py-20"
                   value={footer as PortableTextBlock[]}
+
+                  
                 />
+               
               ) : (
+                
+                <div>
+                  <div>
+               
+                  </div>
+                  <div>
+                    
+                  </div>
                 <div className="flex flex-col items-center py-8 lg:flex-row">
                   <p className=" text-white mb-10 text-center  font-bold leading-tight tracking-tighter lg:mb-0 lg:w-1/2 lg:pr-4 lg:text-left lg:text-xl">
                  &copy; 2024 My Blog. All Rights Reserved.
                   </p>
+                  
                   <div className="flex flex-col items-center justify-center lg:w-1/2 lg:flex-row lg:pl-4">
                    
                    
@@ -99,14 +114,20 @@ export default async function RootLayout({
    <FaFacebook className='text-blue-700 transition duration-300 ease-in-out transform hover:scale-105' />
  </Link>
 </div>
+</div>
                   </div>
                 </div>
               )}
+
+
             </div>
+            <h1 className="text-white text-sm text-center pb-4">Made by: Sobia Mehak</h1>
           </footer>
+ 
         </section>
         {isDraftMode && <VisualEditing />}
         <SpeedInsights />
+     
       </body>
     </html>
   );

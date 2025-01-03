@@ -15,6 +15,7 @@ import * as demo from "@/sanity/lib/demo";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { postQuery, settingsQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
+import CommentSec from "../../comments/page";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -104,14 +105,16 @@ export default async function PostPage({ params }: Props) {
           />
         )}
       </article>
-      <div className="font-bold mt-10 ml-16">
+      {/* <div className="font-bold mt-10 ml-16">
       <h1 className="text-3xl font-bol">Comments :</h1>
 <br />
       <div>
        <span> JhonDOe :</span>
        <span>Awesome</span>
       </div>
-      </div>
+      </div> */}
+
+<CommentSec />
 
       <aside>
         <hr className="border-accent-2 mb-24 mt-28" />

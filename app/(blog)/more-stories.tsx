@@ -7,6 +7,7 @@ import DateComponent from "./date";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { moreStoriesQuery } from "@/sanity/lib/queries";
 
+
 export default async function MoreStories(params: {
   skip: string;
   limit: number;
@@ -44,6 +45,10 @@ export default async function MoreStories(params: {
           );
 
         })}
+
+        <div>
+   
+        </div>
       </div>
       
     </>
